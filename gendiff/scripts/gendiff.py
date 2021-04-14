@@ -22,7 +22,7 @@ def generate_diff(first_file, second_file):
     merged_dict = {**file_1, **file_2}
     list_keys = list(merged_dict.keys())
     list_keys.sort()
-    
+
     for i in list_keys:
         if i in file_1 and i in file_2:
             if file_1[i] == file_2[i]:
