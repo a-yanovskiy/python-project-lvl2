@@ -14,3 +14,8 @@ install:
 
 script:
   - make check
+
+addons:
+  code_climate:
+    repo_token:
+      secure: "b0706ad6ae7d8cc680077edff0055c0624e7243cdad5d49a59243be20d098a68"
