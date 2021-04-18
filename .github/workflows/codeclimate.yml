@@ -1,10 +1,10 @@
-name: codeclimate
+name: check
 
 on: push
 
 jobs:
 
-  codeclimate:
+  check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -24,7 +24,7 @@ jobs:
           make test        
         
   coverage:
-    needs: [ codeclimate ]
+    needs: [ check ]
     name: coverage
     runs-on: ubuntu-latest
     steps:
