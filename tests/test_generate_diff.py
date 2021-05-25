@@ -7,10 +7,7 @@ PATH_TO_JSON_2_FILE = 'tests/fixtures/json_2nd_file.json'
 PATH_TO_JSON_RESULT_FILE = 'tests/fixtures/json_result_file.txt'
 
 
-def test_generate_diff(
-    PATH_TO_JSON_1_FILE,
-    PATH_TO_JSON_2_FILE,
-):
+def test_generate_diff():
 
     result_from_generate_diff = generate_diff(
         PATH_TO_JSON_1_FILE,
