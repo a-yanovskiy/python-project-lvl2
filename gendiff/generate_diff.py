@@ -9,23 +9,18 @@ def generate_diff(first_file, second_file):
     list_keys = list(merged_dict.keys())
     list_keys.sort()
 
-    result = []
+    result = ''
 
     for i in list_keys:
         if i in file_1 and i in file_2:
             if file_1[i] == file_2[i]:
-                result.append(
-                    str('  ' + str(i) + ': ' + file_1.get(i)))
+                result += str('  ' + str(i) + ': ' + file_1.get(i) + '\n')
             else:
-                result.append(
-                    str('- ' + str(i) + ': ' + str(file_1.get(i))))
-                result.append(
-                    str("+ " + str(i) + ': ' + str(file_2.get(i))))
+                result += str('- ' + str(i) + ': ' + str(file_1.get(i)) + '\n')
+                result += str("+ " + str(i) + ': ' + str(file_2.get(i)) + '\n')
         else:
             if i in file_1:
-                result.append(
-                    str('- ' + str(i) + ': ' + str(file_1.get(i))))
+                result += str('- ' + str(i) + ': ' + str(file_1.get(i)) + '\n')
             if i in file_2:
-                result.append(
-                    str('+ ' + str(i) + ': ' + str(file_2.get(i))))
+                result += str('+ ' + str(i) + ': ' + str(file_2.get(i)) + '\n')
     return result
