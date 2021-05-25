@@ -18,4 +18,7 @@ check: selfcheck test lint
 build: check
 	poetry build
 
+run:
+	poetry run gendiff tests/fixtures/json_1st_file.json tests/fixtures/json_2nd_file.json
+
 .PHONY: install test test-coverage lint selfcheck check build
