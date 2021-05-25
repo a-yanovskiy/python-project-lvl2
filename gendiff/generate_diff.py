@@ -1,9 +1,11 @@
-import json
+from gendiff.open_files import open_files
 
 
 def generate_diff(first_file, second_file):
-    file_1 = json.load(open(first_file))
-    file_2 = json.load(open(second_file))
+
+    files = open_files(first_file, second_file)
+    file_1 = files[0]
+    file_2 = files[1]
 
     merged_dict = {**file_1, **file_2}
     list_keys = list(merged_dict.keys())
