@@ -8,12 +8,14 @@ def open_files(first_file, second_file):
     second_file_extension = second_file[second_file.rfind('.'):]
 
     if first_file_extension != second_file_extension:
-        print('У файлов разные форматы')
+        raise Exception('У файлов разные форматы')
     else:
         if first_file_extension == '.json':
+            file_type = first_file_extension
             file_1 = json.load(open(first_file))
             file_2 = json.load(open(second_file))
         elif first_file_extension == '.yaml' or first_file_extension == '.yml':
-            file_1 = yaml.load(open(first_file))
-            file_2 = yaml.load(open(second_file))
-        return file_1, file_2
+            file_type = first_file_extension
+            file_1 = yaml.safe_load(open(first_file))
+            file_2 = yaml.safe_load(open(second_file))
+        return file_1, file_2, file_type

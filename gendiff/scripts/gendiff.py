@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
-
-from gendiff.generate_diff import generate_diff
+from gendiff.generate_diff import gendiff
 
 
 def parse_arguments():
@@ -17,11 +16,12 @@ def parse_arguments():
     first_file = args_dict['first_file']
     second_file = args_dict['second_file']
 
-    print(generate_diff(first_file, second_file))
+    return first_file, second_file
 
 
 def main():
-    parse_arguments()
+    first_file, second_file = parse_arguments()
+    gendiff(first_file, second_file)
 
 
 if __name__ == '__main__':

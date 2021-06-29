@@ -1,28 +1,28 @@
 from gendiff.open_files import open_files
+from gendiff.get_diff_json import get_diff_json
+from gendiff.get_diff_yaml import get_diff_yaml
 
 
-def generate_diff(first_file, second_file):
+def extract_and_sort_all_keys(file_1, file_2):
+    merge_files = {**file_1, **file_2}
+    all_keys = list(merge_files.keys())
+    all_keys.sort()
+    return all_keys
+
+
+def gendiff(first_file, second_file):
 
     files = open_files(first_file, second_file)
     file_1 = files[0]
     file_2 = files[1]
+    file_type = files[2]
+    all_keys = extract_and_sort_all_keys(file_1, file_2)
 
-    merged_dict = {**file_1, **file_2}
-    list_keys = list(merged_dict.keys())
-    list_keys.sort()
-
-    result = ''
-
-    for i in list_keys:
-        if i in file_1 and i in file_2:
-            if file_1[i] == file_2[i]:
-                result += str('  ' + str(i) + ': ' + file_1.get(i) + '\n')
-            else:
-                result += str('- ' + str(i) + ': ' + str(file_1.get(i)) + '\n')
-                result += str("+ " + str(i) + ': ' + str(file_2.get(i)) + '\n')
-        else:
-            if i in file_1:
-                result += str('- ' + str(i) + ': ' + str(file_1.get(i)) + '\n')
-            if i in file_2:
-                result += str('+ ' + str(i) + ': ' + str(file_2.get(i)) + '\n')
-    return result
+    if file_type == '.yaml' or file_type == '.yml':
+        print(
+            get_diff_yaml(file_1, file_2, all_keys)
+        )
+    elif file_type == '.json':
+        print(
+            get_diff_json(file_1, file_2, all_keys)
+        )
