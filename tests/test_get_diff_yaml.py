@@ -3,8 +3,8 @@ from gendiff.get_diff_yaml import get_diff_yaml
 from gendiff.generate_diff import extract_and_sort_all_keys as all_keys
 
 
-PATH_TO_YAML_1_FILE = 'tests/fixtures/yaml_1st_file.yaml'
-PATH_TO_YAML_2_FILE = 'tests/fixtures/yaml_2nd_file.yaml'
+PATH_TO_YAML_1_FILE = 'tests/fixtures/yaml_1_test_file.yaml'
+PATH_TO_YAML_2_FILE = 'tests/fixtures/yaml_2_test_file.yaml'
 PATH_TO_YAML_RESULT_FILE = 'tests/fixtures/yaml_result_file.txt'
 
 

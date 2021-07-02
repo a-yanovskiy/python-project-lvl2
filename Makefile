@@ -19,9 +19,9 @@ build: check
 	poetry build
 
 run-json:
-	poetry run gendiff tests/fixtures/json_1st_file.json tests/fixtures/json_2nd_file.json
+	poetry run gendiff tests/fixtures/json_1_test_file.json tests/fixtures/json_2_test_file.json
 
 run-yaml:
-	poetry run gendiff tests/fixtures/yaml_1st_file.yaml tests/fixtures/yaml_2nd_file.yaml
+	poetry run gendiff tests/fixtures/yaml_1_test_file.yaml tests/fixtures/yaml_2_test_file.yaml
 
 .PHONY: install test test-coverage lint selfcheck check build run-json run-yaml
