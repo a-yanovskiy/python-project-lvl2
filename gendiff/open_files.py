@@ -11,11 +11,9 @@ def open_files(first_file, second_file):
         raise Exception('У файлов разные форматы')
     else:
         if first_file_extension == '.json':
-            file_type = first_file_extension
             file_1 = json.load(open(first_file))
             file_2 = json.load(open(second_file))
         elif first_file_extension == '.yaml' or first_file_extension == '.yml':
-            file_type = first_file_extension
             file_1 = yaml.safe_load(open(first_file))
             file_2 = yaml.safe_load(open(second_file))
-        return file_1, file_2, file_type
+        return file_1, file_2
