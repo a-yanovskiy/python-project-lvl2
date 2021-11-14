@@ -1,15 +1,11 @@
 from gendiff.open_files import open_files
 from gendiff.make_diff import make_diff
 
-PATH_TO_JSON_1_FILE = 'tests/fixtures/json_1_test_file.json'
-PATH_TO_JSON_2_FILE = 'tests/fixtures/json_2_test_file.json'
-PATH_TO_JSON_FIRST_RESULT = 'tests/fixtures/json_diff_first_result.txt'
 
-
-def test_make_diff_json_first():
+def check_make_diff(path_1, path_2, result):
     files = open_files(
-        PATH_TO_JSON_1_FILE,
-        PATH_TO_JSON_2_FILE,
+        path_1,
+        path_2,
     )
 
     file1 = files[0]
@@ -17,32 +13,64 @@ def test_make_diff_json_first():
 
     diff_result = make_diff(file1, file2)
 
-    result_file = open(PATH_TO_JSON_FIRST_RESULT)
+    result_file = open(result)
 
-    result_from_json_file = result_file.read()
+    result_from_file = result_file.read()
 
-    assert diff_result == result_from_json_file
-
-
-PATH_TO_JSON_3_FILE = 'tests/fixtures/json_3_test_file.json'
-PATH_TO_JSON_4_FILE = 'tests/fixtures/json_4_test_file.json'
-PATH_TO_JSON_SECOND_RESULT = 'tests/fixtures/json_diff_second_result.txt'
+    return diff_result, result_from_file
 
 
-# TODO FileNotFoundError исправить. почему не видит файлы?
-def test_make_diff_second():
-    files = open_files(
-        PATH_TO_JSON_3_FILE,
-        PATH_TO_JSON_4_FILE,
+def test_make_diff_json_1():
+
+    PATH_TO_1_FILE = "tests/fixtures/json_1_test_file.json"
+    PATH_TO_2_FILE = "tests/fixtures/json_2_test_file.json"
+    PATH_TO_FIRST_RESULT = "tests/fixtures/json_diff_first_result.txt"
+
+    check_make_diff(
+        PATH_TO_1_FILE,
+        PATH_TO_2_FILE,
+        PATH_TO_FIRST_RESULT,
     )
+    assert check_make_diff[0] == check_make_diff[1]
 
-    file3 = files[0]
-    file4 = files[1]
 
-    diff_result = make_diff(file3, file4)
+def test_make_diff_json_2():
 
-    f = open(PATH_TO_JSON_SECOND_RESULT)
+    PATH_TO_3_FILE = "tests/fixtures/json_3_test_file.json"
+    PATH_TO_4_FILE = "tests/fixtures/json_4_test_file.json"
+    PATH_TO_SECOND_RESULT = "tests/fixtures/json_diff_second_result.txt"
 
-    result_from_json_file = f.read()
+    check_make_diff(
+        PATH_TO_3_FILE,
+        PATH_TO_4_FILE,
+        PATH_TO_SECOND_RESULT,
+    )
+    assert check_make_diff[0] == check_make_diff[1]
 
-    assert diff_result == result_from_json_file
+
+def test_make_diff_yaml_1():
+
+    PATH_TO_3_FILE = "tests/fixtures/yaml_1_test_file.yaml"
+    PATH_TO_4_FILE = "tests/fixtures/yaml_2_test_file.yaml"
+    PATH_TO_SECOND_RESULT = "tests/fixtures/yaml_diff_first_result.txt"
+
+    check_make_diff(
+        PATH_TO_3_FILE,
+        PATH_TO_4_FILE,
+        PATH_TO_SECOND_RESULT,
+    )
+    assert check_make_diff[0] == check_make_diff[1]
+
+
+def test_make_diff_yaml_2():
+
+    PATH_TO_3_FILE = "tests/fixtures/yaml_3_test_file.yaml"
+    PATH_TO_4_FILE = "tests/fixtures/yaml_4_test_file.yaml"
+    PATH_TO_SECOND_RESULT = "tests/fixtures/yaml_diff_second_result.txt"
+
+    check_make_diff(
+        PATH_TO_3_FILE,
+        PATH_TO_4_FILE,
+        PATH_TO_SECOND_RESULT,
+    )
+    assert check_make_diff[0] == check_make_diff[1]
