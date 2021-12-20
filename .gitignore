@@ -132,3 +132,4 @@ dmypy.json
 # VSCode files
 .vscode/
 itest.py
+.idea/
