@@ -131,5 +131,12 @@ dmypy.json
 
 # VSCode files
 .vscode/
-itest.py
+
+# pycharm files
 .idea/
+
+# python cache
+gendiff/scripts/___pycache__/
+
+# dev files
+itest.py
