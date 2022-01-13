@@ -17,35 +17,37 @@ def make_value(diff) -> str:
 
 def stylish(diff):
 
-    # def inner(diff):
-
-    result = '{'
-
-    if not isinstance(diff, dict):
-        return result + make_value(diff)
-
-    keys = diff.keys()
-
     statuses = {
-        'added': '  + ',
-        'deleted': '  - ',
-        'unchanged': '    ',
-        'changed': '    ',
+        'added': '+ ',
+        'deleted': '- ',
+        'unchanged': '  ',
+        'changed': '  ',
     }
 
-    for key in keys:
-        status = diff[key]['status']
 
-        if status in statuses:
+    def inner(node, depth):
 
+        if not isinstance(node, dict):
+            return make_value(node)
 
-        if status == 'replaced':
-            status = 'deleted'
-            indent = status[key]
-        key = 'added'
-        indent = status[key]
+        nonlocal statuses
+        result = '{' 
+        indent = "  " * depth
 
-        def
-        for key in status.keys():
-            indent = status[key]
-            --> рекурсия
+        keys = node.keys()
+
+        for key in keys:
+            status = node[key]['status']
+            body1 = node[key]['body1']
+
+            if status == 'replaced':
+                result += '\n' + indent + statuses['deleted'] + key + ': ' + inner(body1, depth + 2)
+                
+                body2 = node[key]['body2']
+                result += '\n' + indent + statuses['added'] + key + ': ' + inner(body2, depth + 2)
+            else:
+                result += '\n' + indent + statuses[status] + key + ': ' + inner(body1, depth + 2)
+
+        return result + '\n' + indent[:-2] + '}'
+
+    return inner(diff, 1)
