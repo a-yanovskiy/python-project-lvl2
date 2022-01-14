@@ -1,19 +1,12 @@
 def diff_keys(dict1, dict2):
-    """[summary]
 
-    Args:
-        dict1 ([type]): [description]
-        dict2 ([type]): [description]
-
-    Returns:
-        [type]: [description]
-    """
     keys_set_1 = set(dict1.keys())
     keys_set_2 = set(dict2.keys())
 
     all_keys_sorted = sorted(list(keys_set_1 | keys_set_2))
     added_keys = list(keys_set_2 - keys_set_1)
     deleted_keys = list(keys_set_1 - keys_set_2)
+    
     return all_keys_sorted, added_keys, deleted_keys
 
 
@@ -25,9 +18,7 @@ def make_diff(dict1, dict2=None):
     if dict2 is None:
         dict2 = dict1
 
-    all_keys = diff_keys(dict1, dict2)[0]
-    added = diff_keys(dict1, dict2)[1]
-    deleted = diff_keys(dict1, dict2)[2]
+    all_keys, added, deleted = diff_keys(dict1, dict2)
 
     result = {}
 
@@ -46,7 +37,7 @@ def make_diff(dict1, dict2=None):
             if dict1[key] == dict2[key]:
                 result[key] = {
                     'status': 'unchanged',
-                    'body1': dict1[key]}
+                    'body1': make_diff(dict1[key])}
             elif not isinstance(
                 dict1[key], dict
             ) or not isinstance(
