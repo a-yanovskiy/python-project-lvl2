@@ -1,6 +1,6 @@
 def make_value(diff) -> str:
     if diff is None:
-        return 'null'
+        return "null"
 
     if isinstance(diff, bool):
         string = str(diff)
@@ -18,12 +18,11 @@ def make_value(diff) -> str:
 def stylish(diff):
 
     statuses = {
-        'added': '+ ',
-        'deleted': '- ',
-        'unchanged': '  ',
-        'changed': '  ',
+        "added": "+ ",
+        "deleted": "- ",
+        "unchanged": "  ",
+        "changed": "  ",
     }
-
 
     def inner(node, depth):
 
@@ -31,23 +30,26 @@ def stylish(diff):
             return make_value(node)
 
         nonlocal statuses
-        result = '{' 
+        result = "{"
         indent = "  " * depth
 
         keys = node.keys()
 
         for key in keys:
-            status = node[key]['status']
-            body1 = node[key]['body1']
+            status = node[key]["status"]
+            body1 = node[key]["body1"]
 
-            if status == 'replaced':
-                result += '\n' + indent + statuses['deleted'] + key + ': ' + inner(body1, depth + 2)
-                
-                body2 = node[key]['body2']
-                result += '\n' + indent + statuses['added'] + key + ': ' + inner(body2, depth + 2)
+            if status == "replaced":
+                result += ("\n" + indent + statuses["deleted"] + key + ": " +
+                           inner(body1, depth + 2))
+
+                body2 = node[key]["body2"]
+                result += ("\n" + indent + statuses["added"] + key + ": " +
+                           inner(body2, depth + 2))
             else:
-                result += '\n' + indent + statuses[status] + key + ': ' + inner(body1, depth + 2)
+                result += ("\n" + indent + statuses[status] + key + ": " +
+                           inner(body1, depth + 2))
 
-        return result + '\n' + indent[:-2] + '}'
+        return result + "\n" + indent[:-2] + "}"
 
     return inner(diff, 1)
