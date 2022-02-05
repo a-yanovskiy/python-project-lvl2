@@ -136,9 +136,9 @@ dmypy.json
 .idea/
 
 # python cache
-gendiff/scripts/___pycache__/
+___pycache__/
+
 
 # dev files
 itest.py
 itest.txt
-gendiff/scripts/__pycache__/gendiff.cpython-38.pyc
