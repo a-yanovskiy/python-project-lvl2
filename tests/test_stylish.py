@@ -2,17 +2,17 @@ from gendiff.formaters.stylish import stylish
 import ast
 import pytest
 
-PATH_TO_JSON_DIFF_FIRST_RESULT = "tests/fixtures/json_diff_first_result.txt"
-PATH_TO_JSON_STYLISH_FIRST_RESULT = "tests/fixtures/json_stylish_first_result.txt"
+PATH_TO_DIFF_FIRST_RESULT = "tests/fixtures/diff_first_result.txt"
+PATH_TO_STYLISH_FIRST_RESULT = "tests/fixtures/stylish_first_result.txt"
 
-PATH_TO_JSON_DIFF_SECOND_RESULT = "tests/fixtures/json_diff_second_result.txt"
-PATH_TO_JSON_STYLISH_SECOND_RESULT = "tests/fixtures/json_stylish_second_result.txt"
+PATH_TO_DIFF_SECOND_RESULT = "tests/fixtures/diff_second_result.txt"
+PATH_TO_STYLISH_SECOND_RESULT = "tests/fixtures/stylish_second_result.txt"
 
 
 @pytest.mark.parametrize("path_to_diff_file, path_to_stylished_file",
     [
-        (PATH_TO_JSON_DIFF_FIRST_RESULT, PATH_TO_JSON_STYLISH_FIRST_RESULT),
-        (PATH_TO_JSON_DIFF_SECOND_RESULT, PATH_TO_JSON_STYLISH_SECOND_RESULT),
+        (PATH_TO_DIFF_FIRST_RESULT, PATH_TO_STYLISH_FIRST_RESULT),
+        (PATH_TO_DIFF_SECOND_RESULT, PATH_TO_STYLISH_SECOND_RESULT),
     ]
 )
 def test_stylish(path_to_diff_file, path_to_stylished_file):

@@ -1,1 +1,0 @@
-{'follow': {'status': 'deleted', 'body1': False}, 'host': {'status': 'unchanged', 'body1': 'hexlet.io'}, 'proxy': {'status': 'deleted', 'body1': '123.234.53.22'}, 'timeout': {'status': 'replaced', 'body1': 50, 'body2': 20}, 'verbose': {'status': 'added', 'body1': True}}
