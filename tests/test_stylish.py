@@ -25,4 +25,4 @@ def test_stylish(path_to_diff_file, path_to_stylished_file):
 
     formated_by_stylish = stylish(unformated_file)
 
-    assert formated_by_stylish, formated_file
+    assert formated_by_stylish == formated_file
