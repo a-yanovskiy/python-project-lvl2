@@ -1,8 +1,12 @@
-from gendiff.formaters import stylish
+from gendiff.formaters.stylish import get_stylish
+from gendiff.formaters.plain import get_plain
 
 
 def formater(diff, formater_str):
 
-    formater = getattr(stylish, formater_str)
+    formaters = {
+        'stylish': get_stylish,
+        'plain': get_plain,
+    }
 
-    return formater(diff)
+    return formaters[formater_str](diff)
