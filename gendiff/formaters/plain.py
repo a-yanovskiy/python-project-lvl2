@@ -47,17 +47,19 @@ def get_plain(diff):
                 if status == 'replaced':
                     body2 = node[key]["body2"]
                     body2 = make_value(body2)
-                    property += f"Property '{save_key}{key}' was updated. From {body1} to {body2}\n"
-                
+                    property += f"Property '{save_key}{key}' \
+                        was updated. From {body1} to {body2}\n"
+
                 elif status == 'added':
-                    property += f"Property '{save_key}{key}' was added with value: {body1}\n"
+                    property += f"Property '{save_key}{key}' \
+                        was added with value: {body1}\n"
 
                 elif status == 'deleted':
                     property += f"Property '{save_key}{key}' was removed\n"
 
                 else:
                     continue
-            
+
         return property
 
     return inner(diff, save_key="")
