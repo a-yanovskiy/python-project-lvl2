@@ -23,6 +23,6 @@ def test_get_plain(path_to_diff_file, path_to_plained_file):
     with open(path_to_plained_file, 'r') as formated:
         formated_file = formated.read()
 
-    formated_by_plain = get_plain(unformated_file)[:-1]
+    formated_by_plain = get_plain(unformated_file)
 
     assert formated_by_plain == formated_file

@@ -15,7 +15,7 @@ def make_value(diff) -> str:
     return diff
 
 
-def stylish(diff):
+def get_stylish(diff):
 
     statuses = {
         "added": "+ ",

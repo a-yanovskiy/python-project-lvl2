@@ -1,4 +1,4 @@
-from gendiff.formaters.stylish import stylish
+from gendiff.formaters.stylish import get_stylish
 import ast
 import pytest
 
@@ -23,6 +23,6 @@ def test_stylish(path_to_diff_file, path_to_stylished_file):
     with open(path_to_stylished_file, 'r') as formated:
         formated_file = formated.read()
 
-    formated_by_stylish = stylish(unformated_file)
+    formated_by_stylish = get_stylish(unformated_file)
 
     assert formated_by_stylish == formated_file
