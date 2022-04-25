@@ -8,7 +8,7 @@ def open_files(first_file, second_file):
     second_file_extension = second_file[second_file.rfind('.'):]
 
     if first_file_extension != second_file_extension:
-        raise Exception('У файлов разные форматы')
+        raise Exception('Files have different formats')
     else:
         if first_file_extension == '.json':
             file_1 = json.load(open(first_file))
