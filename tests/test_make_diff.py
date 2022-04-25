@@ -21,13 +21,13 @@ PATH_TO_YAML_SECOND_RESULT = "tests/fixtures/diff_second_result.txt"
 
 
 @pytest.mark.parametrize("path_1, path_2, result",
-    [
-        (PATH_TO_JSON_1_FILE, PATH_TO_JSON_2_FILE, PATH_TO_JSON_FIRST_RESULT),
-        (PATH_TO_JSON_3_FILE, PATH_TO_JSON_4_FILE, PATH_TO_JSON_SECOND_RESULT),
-        (PATH_TO_YAML_1_FILE, PATH_TO_YAML_2_FILE, PATH_TO_YAML_FIRST_RESULT),
-        (PATH_TO_YAML_3_FILE, PATH_TO_YAML_4_FILE, PATH_TO_YAML_SECOND_RESULT),
-    ]
-)
+                         [
+                             (PATH_TO_JSON_1_FILE, PATH_TO_JSON_2_FILE, PATH_TO_JSON_FIRST_RESULT),
+                             (PATH_TO_JSON_3_FILE, PATH_TO_JSON_4_FILE, PATH_TO_JSON_SECOND_RESULT),
+                             (PATH_TO_YAML_1_FILE, PATH_TO_YAML_2_FILE, PATH_TO_YAML_FIRST_RESULT),
+                             (PATH_TO_YAML_3_FILE, PATH_TO_YAML_4_FILE, PATH_TO_YAML_SECOND_RESULT),
+                         ]
+                         )
 def test_make_diff(path_1, path_2, result):
     files = open_files(
         path_1,
