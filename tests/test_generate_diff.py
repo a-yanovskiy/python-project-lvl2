@@ -1,6 +1,4 @@
-from re import S
 from gendiff.generate_diff import generate_diff
-import ast
 import pytest
 
 
