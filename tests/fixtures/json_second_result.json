@@ -1,0 +1,125 @@
+{
+  "common": {
+    "body1": {
+      "follow": {
+        "body1": false,
+        "status": "added"
+      },
+      "setting1": {
+        "body1": "Value 1",
+        "status": "unchanged"
+      },
+      "setting2": {
+        "body1": 200,
+        "status": "deleted"
+      },
+      "setting3": {
+        "body1": true,
+        "body2": null,
+        "status": "replaced"
+      },
+      "setting4": {
+        "body1": "blah blah",
+        "status": "added"
+      },
+      "setting5": {
+        "body1": {
+          "key5": {
+            "body1": "value5",
+            "status": "unchanged"
+          }
+        },
+        "status": "added"
+      },
+      "setting6": {
+        "body1": {
+          "doge": {
+            "body1": {
+              "wow": {
+                "body1": "",
+                "body2": "so much",
+                "status": "replaced"
+              }
+            },
+            "status": "changed"
+          },
+          "key": {
+            "body1": "value",
+            "status": "unchanged"
+          },
+          "ops": {
+            "body1": "vops",
+            "status": "added"
+          }
+        },
+        "status": "changed"
+      }
+    },
+    "status": "changed"
+  },
+  "group1": {
+    "body1": {
+      "baz": {
+        "body1": "bas",
+        "body2": "bars",
+        "status": "replaced"
+      },
+      "foo": {
+        "body1": "bar",
+        "status": "unchanged"
+      },
+      "nest": {
+        "body1": {
+          "key": {
+            "body1": "value",
+            "status": "unchanged"
+          }
+        },
+        "body2": "str",
+        "status": "replaced"
+      }
+    },
+    "status": "changed"
+  },
+  "group2": {
+    "body1": {
+      "abc": {
+        "body1": 12345,
+        "status": "unchanged"
+      },
+      "deep": {
+        "body1": {
+          "id": {
+            "body1": 45,
+            "status": "unchanged"
+          }
+        },
+        "status": "unchanged"
+      }
+    },
+    "status": "deleted"
+  },
+  "group3": {
+    "body1": {
+      "deep": {
+        "body1": {
+          "id": {
+            "body1": {
+              "number": {
+                "body1": 45,
+                "status": "unchanged"
+              }
+            },
+            "status": "unchanged"
+          }
+        },
+        "status": "unchanged"
+      },
+      "fee": {
+        "body1": 100500,
+        "status": "unchanged"
+      }
+    },
+    "status": "added"
+  }
+}

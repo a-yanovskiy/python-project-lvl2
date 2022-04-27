@@ -1,0 +1,23 @@
+{
+  "follow": {
+    "body1": false,
+    "status": "deleted"
+  },
+  "host": {
+    "body1": "hexlet.io",
+    "status": "unchanged"
+  },
+  "proxy": {
+    "body1": "123.234.53.22",
+    "status": "deleted"
+  },
+  "timeout": {
+    "body1": 50,
+    "body2": 20,
+    "status": "replaced"
+  },
+  "verbose": {
+    "body1": true,
+    "status": "added"
+  }
+}
