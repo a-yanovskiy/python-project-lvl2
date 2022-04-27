@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "gendiff"
+name = "hexlet-code"
 version = "0.2.1"
 description = ""
 authors = ["a-yanovskiy <a.e.yanovskiy@gmail.com>"]
 packages = [
-  { include = "gendiff" },
+  { include = "hexlet-code" },
 ]
 
 [tool.poetry.dependencies]
