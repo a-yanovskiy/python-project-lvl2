@@ -15,7 +15,7 @@ PATH_TO_JSON_SECOND_RESULT = "fixtures/json_second_result.json"
                              (PATH_TO_DIFF_SECOND_RESULT, PATH_TO_JSON_SECOND_RESULT),
                          ]
                          )
-def test_json(path_to_diff_file, path_to_jsoned_file):
+def test_get_json(path_to_diff_file, path_to_jsoned_file):
     with open(path_to_diff_file, 'r') as unformated:
         unformated_file = unformated.read()
         unformated_file = ast.literal_eval(unformated_file)

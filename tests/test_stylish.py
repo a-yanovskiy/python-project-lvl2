@@ -15,7 +15,7 @@ PATH_TO_STYLISH_SECOND_RESULT = "tests/fixtures/stylish_second_result.txt"
         (PATH_TO_DIFF_SECOND_RESULT, PATH_TO_STYLISH_SECOND_RESULT),
     ]
 )
-def test_stylish(path_to_diff_file, path_to_stylished_file):
+def test_get_stylish(path_to_diff_file, path_to_stylished_file):
 
     with open(path_to_diff_file, 'r') as unformated:
         unformated_file = unformated.read()
