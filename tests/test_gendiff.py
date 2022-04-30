@@ -19,7 +19,7 @@ PATH_TO_PLAIN_FIRST_RESULT = "fixtures/plain_first_result.txt"
 PATH_TO_PLAIN_SECOND_RESULT = "fixtures/plain_second_result.txt"
 
 
-@pytest.mark.parametrize("first_file, second_file, result_file, formater",
+@pytest.mark.parametrize("first_file, second_file, result_file, formatter",
                          [
                              (PATH_TO_JSON_1_FILE, PATH_TO_JSON_2_FILE, PATH_TO_STYLISH_FIRST_RESULT, "stylish"),
                              (PATH_TO_JSON_3_FILE, PATH_TO_JSON_4_FILE, PATH_TO_STYLISH_SECOND_RESULT, "stylish"),
@@ -31,8 +31,8 @@ PATH_TO_PLAIN_SECOND_RESULT = "fixtures/plain_second_result.txt"
                              (PATH_TO_YAML_3_FILE, PATH_TO_YAML_4_FILE, PATH_TO_PLAIN_SECOND_RESULT, "plain"),
                          ]
                          )
-def test_generate_diff(first_file, second_file, result_file, formater):
-    diff = generate_diff(first_file, second_file, formater)
+def test_generate_diff(first_file, second_file, result_file, formatter):
+    diff = generate_diff(first_file, second_file, formatter)
 
     with open(result_file, 'r') as f:
         result = f.read()

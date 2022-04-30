@@ -1,4 +1,4 @@
-from gendiff.formaters.plain import get_plain
+from gendiff.formatters.plain import get_plain
 import ast
 import pytest
 
@@ -17,12 +17,12 @@ PATH_TO_PLAIN_SECOND_RESULT = "fixtures/plain_second_result.txt"
 )
 def test_get_plain(path_to_diff_file, path_to_plained_file):
 
-    with open(path_to_diff_file, 'r') as unformated:
-        unformated_file = unformated.read()
-        unformated_file = ast.literal_eval(unformated_file)
-    with open(path_to_plained_file, 'r') as formated:
-        formated_file = formated.read()
+    with open(path_to_diff_file, 'r') as unformatted:
+        unformatted_file = unformatted.read()
+        unformatted_file = ast.literal_eval(unformatted_file)
+    with open(path_to_plained_file, 'r') as formatted:
+        formatted_file = formatted.read()
 
-    formated_by_plain = get_plain(unformated_file)
+    formatted_by_plain = get_plain(unformatted_file)
 
-    assert formated_by_plain == formated_file
+    assert formatted_by_plain == formatted_file

@@ -3,7 +3,7 @@
 from gendiff.parse_arguments import parse_arguments
 from gendiff.open_files import open_files
 from gendiff.make_diff import make_diff
-from gendiff.formaters.formaters import formater
+from gendiff.formatters.formatters import formatter
 
 
 def generate_diff(first_file, second_file, format='stylish'):
@@ -14,7 +14,7 @@ def generate_diff(first_file, second_file, format='stylish'):
 
     diff = make_diff(file_1, file_2)
 
-    return formater(diff, format)
+    return formatter(diff, format)
 
 
 def main():

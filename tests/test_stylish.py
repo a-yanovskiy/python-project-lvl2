@@ -1,4 +1,4 @@
-from gendiff.formaters.stylish import get_stylish
+from gendiff.formatters.stylish import get_stylish
 import ast
 import pytest
 
@@ -10,19 +10,18 @@ PATH_TO_STYLISH_SECOND_RESULT = "tests/fixtures/stylish_second_result.txt"
 
 
 @pytest.mark.parametrize("path_to_diff_file, path_to_stylished_file",
-    [
-        (PATH_TO_DIFF_FIRST_RESULT, PATH_TO_STYLISH_FIRST_RESULT),
-        (PATH_TO_DIFF_SECOND_RESULT, PATH_TO_STYLISH_SECOND_RESULT),
-    ]
-)
+                         [
+                             (PATH_TO_DIFF_FIRST_RESULT, PATH_TO_STYLISH_FIRST_RESULT),
+                             (PATH_TO_DIFF_SECOND_RESULT, PATH_TO_STYLISH_SECOND_RESULT),
+                         ]
+                         )
 def test_get_stylish(path_to_diff_file, path_to_stylished_file):
+    with open(path_to_diff_file, 'r') as unformatted:
+        unformatted_file = unformatted.read()
+        unformatted_file = ast.literal_eval(unformatted_file)
+    with open(path_to_stylished_file, 'r') as formatted:
+        formatted_file = formatted.read()
 
-    with open(path_to_diff_file, 'r') as unformated:
-        unformated_file = unformated.read()
-        unformated_file = ast.literal_eval(unformated_file)
-    with open(path_to_stylished_file, 'r') as formated:
-        formated_file = formated.read()
+    formatted_by_stylish = get_stylish(unformatted_file)
 
-    formated_by_stylish = get_stylish(unformated_file)
-
-    assert formated_by_stylish == formated_file
+    assert formatted_by_stylish == formatted_file

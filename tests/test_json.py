@@ -1,4 +1,4 @@
-from gendiff.formaters.json import get_json
+from gendiff.formatters.json import get_json
 import ast
 import pytest
 
@@ -16,12 +16,12 @@ PATH_TO_JSON_SECOND_RESULT = "fixtures/json_second_result.json"
                          ]
                          )
 def test_get_json(path_to_diff_file, path_to_jsoned_file):
-    with open(path_to_diff_file, 'r') as unformated:
-        unformated_file = unformated.read()
-        unformated_file = ast.literal_eval(unformated_file)
-    with open(path_to_jsoned_file, 'r') as formated:
-        formated_file = formated.read()
+    with open(path_to_diff_file, 'r') as unformatted:
+        unformatted_file = unformatted.read()
+        unformatted_file = ast.literal_eval(unformatted_file)
+    with open(path_to_jsoned_file, 'r') as formatted:
+        formatted_file = formatted.read()
 
-    formated_by_json = get_json(unformated_file)
+    formatted_by_json = get_json(unformatted_file)
 
-    assert formated_by_json == formated_file
+    assert formatted_by_json == formatted_file
