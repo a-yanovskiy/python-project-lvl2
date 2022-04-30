@@ -1,27 +1,20 @@
 #!/usr/bin/env python3
 
-import argparse
-from gendiff.generate_diff import generate_diff
+from gendiff.parse_arguments import parse_arguments
+from gendiff.open_files import open_files
+from gendiff.make_diff import make_diff
+from gendiff.formaters.formaters import formater
 
 
-def parse_arguments():
-    parser = argparse.ArgumentParser(description="Generate diff")
+def generate_diff(first_file, second_file, format='stylish'):
 
-    parser.add_argument("-f",
-                        "--format",
-                        dest='format',
-                        type=str,
-                        default='stylish')
-    parser.add_argument("first_file", type=str, help="first_file")
-    parser.add_argument("second_file", type=str, help="second_file")
+    files = open_files(first_file, second_file)
+    file_1 = files[0]
+    file_2 = files[1]
 
-    args = parser.parse_args()
-    args_dict = vars(args)
-    first_file = args_dict["first_file"]
-    second_file = args_dict["second_file"]
-    format = args.format
+    diff = make_diff(file_1, file_2)
 
-    return first_file, second_file, format
+    return formater(diff, format)
 
 
 def main():
