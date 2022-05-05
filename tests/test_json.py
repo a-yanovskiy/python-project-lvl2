@@ -2,11 +2,11 @@ from gendiff.formatters.json import get_json
 import ast
 import pytest
 
-PATH_TO_DIFF_FIRST_RESULT = "fixtures/diff_first_result.txt"
-PATH_TO_JSON_FIRST_RESULT = "fixtures/json_first_result.json"
+PATH_TO_DIFF_FIRST_RESULT = "tests/fixtures/diff_first_result.txt"
+PATH_TO_JSON_FIRST_RESULT = "tests/fixtures/json_first_result.json"
 
-PATH_TO_DIFF_SECOND_RESULT = "fixtures/diff_second_result.txt"
-PATH_TO_JSON_SECOND_RESULT = "fixtures/json_second_result.json"
+PATH_TO_DIFF_SECOND_RESULT = "tests/fixtures/diff_second_result.txt"
+PATH_TO_JSON_SECOND_RESULT = "tests/fixtures/json_second_result.json"
 
 
 @pytest.mark.parametrize("path_to_diff_file, path_to_jsoned_file",
