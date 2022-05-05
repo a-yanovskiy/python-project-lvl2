@@ -15,19 +15,13 @@ selfcheck:
 
 check: selfcheck test lint
 
-build: check
+build:
 	poetry build
 
-run-json-files12:
-	poetry run gendiff tests/fixtures/json_1_test_file.json tests/fixtures/json_2_test_file.json
+publish:
+	poetry publish --dry-run
 
-run-json-files34:
-	poetry run gendiff tests/fixtures/json_3_test_file.json tests/fixtures/json_4_test_file.json
+package-install:
+	python3 -m pip install --user dist/*.whl
 
-run-yaml-files12:
-	poetry run gendiff tests/fixtures/yaml_1_test_file.yaml tests/fixtures/yaml_2_test_file.yaml
-
-run-yaml-files34:
-	poetry run gendiff tests/fixtures/yaml_3_test_file.yaml tests/fixtures/yaml_4_test_file.yaml
-
-.PHONY: install test test-coverage lint selfcheck check build run-json-files12 run-json-files34 run-yaml-files12 run-yaml-files34
+.PHONY: install test test-coverage lint selfcheck check build publish package-install
