@@ -16,7 +16,6 @@ def make_value(diff) -> str:
 
 
 def get_stylish(diff):
-
     statuses = {
         "added": "+ ",
         "deleted": "- ",
@@ -40,15 +39,15 @@ def get_stylish(diff):
             body1 = node[key]["body1"]
 
             if status == "replaced":
-                result += ("\n" + indent + statuses["deleted"] + key + ": " +
-                           inner(body1, depth + 2))
+                result += ("\n" + indent + statuses["deleted"] + key + ": "
+                           + inner(body1, depth + 2))
 
                 body2 = node[key]["body2"]
-                result += ("\n" + indent + statuses["added"] + key + ": " +
-                           inner(body2, depth + 2))
+                result += ("\n" + indent + statuses["added"] + key + ": "
+                           + inner(body2, depth + 2))
             else:
-                result += ("\n" + indent + statuses[status] + key + ": " +
-                           inner(body1, depth + 2))
+                result += ("\n" + indent + statuses[status] + key + ": "
+                           + inner(body1, depth + 2))
 
         return result + "\n" + indent[:-2] + "}"
 
