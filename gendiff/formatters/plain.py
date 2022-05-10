@@ -1,3 +1,7 @@
+def get_plain(diff):
+    return make_plain(diff)[:-1]
+
+
 def make_value(diff) -> str:
     if isinstance(diff, dict):
         return '[complex value]'
@@ -18,8 +22,7 @@ def make_value(diff) -> str:
     return diff
 
 
-def get_plain(diff):
-
+def make_plain(diff):
     def inner(node, save_key):
 
         if not isinstance(node, dict):
