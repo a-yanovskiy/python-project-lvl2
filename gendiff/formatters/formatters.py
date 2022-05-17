@@ -1,10 +1,9 @@
-from gendiff.formatters.stylish import get_stylish
-from gendiff.formatters.plain import get_plain
 from gendiff.formatters.json import get_json
+from gendiff.formatters.plain import get_plain
+from gendiff.formatters.stylish import get_stylish
 
 
-def formatter(diff, formatter_str):
-
+def format_diff(diff, formatter_str):
     formatters = {
         'stylish': get_stylish,
         'plain': get_plain,

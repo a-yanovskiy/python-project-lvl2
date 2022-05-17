@@ -1,9 +1,9 @@
 import json
+
 import yaml
 
 
-def open_files(first_file, second_file):
-
+def check_ext(first_file, second_file):
     first_file_extension = first_file[first_file.rfind('.'):]
     second_file_extension = second_file[second_file.rfind('.'):]
 
