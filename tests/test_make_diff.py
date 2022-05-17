@@ -1,7 +1,7 @@
-from gendiff.open_files import open_files
-from gendiff.make_diff import make_diff
 import pytest
 
+from gendiff.check import check_ext
+from gendiff.diff import make_diff
 
 PATH_TO_JSON_1_FILE = "tests/fixtures/json_1_test_file.json"
 PATH_TO_JSON_2_FILE = "tests/fixtures/json_2_test_file.json"
@@ -29,7 +29,7 @@ PATH_TO_YAML_SECOND_RESULT = "tests/fixtures/diff_second_result.txt"
                          ]
                          )
 def test_make_diff(path_1, path_2, result):
-    files = open_files(
+    files = check_ext(
         path_1,
         path_2,
     )

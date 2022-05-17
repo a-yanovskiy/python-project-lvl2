@@ -1,19 +1,6 @@
 #!/usr/bin/env python3
-
 from gendiff.cli import parse_arguments
-from gendiff.formatters.formatters import formatter
-from gendiff.make_diff import make_diff
-from gendiff.open_files import open_files
-
-
-def generate_diff(first_file, second_file, format='stylish'):
-    files = open_files(first_file, second_file)
-    file_1 = files[0]
-    file_2 = files[1]
-
-    diff = make_diff(file_1, file_2)
-
-    return formatter(diff, format)
+from gendiff.diff import generate_diff
 
 
 def main():

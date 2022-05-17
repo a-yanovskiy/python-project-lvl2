@@ -1,24 +1,20 @@
-def diff_keys(dict1, dict2):
-
-    keys_set_1 = set(dict1.keys())
-    keys_set_2 = set(dict2.keys())
-
-    all_keys_sorted = sorted(list(keys_set_1 | keys_set_2))
-    added_keys = list(keys_set_2 - keys_set_1)
-    deleted_keys = list(keys_set_1 - keys_set_2)
-
-    return all_keys_sorted, added_keys, deleted_keys
+from gendiff.check import check_ext
+from gendiff.formatters.formatters import format_diff
 
 
 def make_diff(dict1, dict2=None):
-
     if not isinstance(dict1, dict):
         return dict1
 
     if dict2 is None:
         dict2 = dict1
 
-    all_keys, added, deleted = diff_keys(dict1, dict2)
+    keys_set_1 = set(dict1.keys())
+    keys_set_2 = set(dict2.keys())
+
+    all_keys = sorted(list(keys_set_1 | keys_set_2))
+    added = list(keys_set_2 - keys_set_1)
+    deleted = list(keys_set_1 - keys_set_2)
 
     result = {}
 
@@ -46,3 +42,12 @@ def make_diff(dict1, dict2=None):
                     'body1': make_diff(dict1[key], dict2[key])
                 }
     return result
+
+
+def generate_diff(first_file, second_file, format='stylish'):
+    files = check_ext(first_file, second_file)
+    file_1, file_2 = files
+
+    diff = make_diff(file_1, file_2)
+
+    return format_diff(diff, format)
