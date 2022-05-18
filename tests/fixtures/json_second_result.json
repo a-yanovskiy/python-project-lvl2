@@ -3,33 +3,33 @@
     "body1": {
       "follow": {
         "body1": false,
-        "status": "added"
+        "type": "added"
       },
       "setting1": {
         "body1": "Value 1",
-        "status": "unchanged"
+        "type": "unchanged"
       },
       "setting2": {
         "body1": 200,
-        "status": "deleted"
+        "type": "deleted"
       },
       "setting3": {
         "body1": true,
         "body2": null,
-        "status": "replaced"
+        "type": "replaced"
       },
       "setting4": {
         "body1": "blah blah",
-        "status": "added"
+        "type": "added"
       },
       "setting5": {
         "body1": {
           "key5": {
             "body1": "value5",
-            "status": "unchanged"
+            "type": "unchanged"
           }
         },
-        "status": "added"
+        "type": "added"
       },
       "setting6": {
         "body1": {
@@ -38,66 +38,66 @@
               "wow": {
                 "body1": "",
                 "body2": "so much",
-                "status": "replaced"
+                "type": "replaced"
               }
             },
-            "status": "changed"
+            "type": "changed"
           },
           "key": {
             "body1": "value",
-            "status": "unchanged"
+            "type": "unchanged"
           },
           "ops": {
             "body1": "vops",
-            "status": "added"
+            "type": "added"
           }
         },
-        "status": "changed"
+        "type": "changed"
       }
     },
-    "status": "changed"
+    "type": "changed"
   },
   "group1": {
     "body1": {
       "baz": {
         "body1": "bas",
         "body2": "bars",
-        "status": "replaced"
+        "type": "replaced"
       },
       "foo": {
         "body1": "bar",
-        "status": "unchanged"
+        "type": "unchanged"
       },
       "nest": {
         "body1": {
           "key": {
             "body1": "value",
-            "status": "unchanged"
+            "type": "unchanged"
           }
         },
         "body2": "str",
-        "status": "replaced"
+        "type": "replaced"
       }
     },
-    "status": "changed"
+    "type": "changed"
   },
   "group2": {
     "body1": {
       "abc": {
         "body1": 12345,
-        "status": "unchanged"
+        "type": "unchanged"
       },
       "deep": {
         "body1": {
           "id": {
             "body1": 45,
-            "status": "unchanged"
+            "type": "unchanged"
           }
         },
-        "status": "unchanged"
+        "type": "unchanged"
       }
     },
-    "status": "deleted"
+    "type": "deleted"
   },
   "group3": {
     "body1": {
@@ -107,19 +107,19 @@
             "body1": {
               "number": {
                 "body1": 45,
-                "status": "unchanged"
+                "type": "unchanged"
               }
             },
-            "status": "unchanged"
+            "type": "unchanged"
           }
         },
-        "status": "unchanged"
+        "type": "unchanged"
       },
       "fee": {
         "body1": 100500,
-        "status": "unchanged"
+        "type": "unchanged"
       }
     },
-    "status": "added"
+    "type": "added"
   }
 }

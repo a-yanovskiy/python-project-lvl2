@@ -20,25 +20,25 @@ def make_diff(dict1, dict2=None):
 
     for key in all_keys:
         if key in added:
-            result[key] = {'status': 'added', 'body1': make_diff(dict2[key])}
+            result[key] = {'type': 'added', 'body1': make_diff(dict2[key])}
         elif key in deleted:
-            result[key] = {'status': 'deleted', 'body1': make_diff(dict1[key])}
+            result[key] = {'type': 'deleted', 'body1': make_diff(dict1[key])}
         else:
             if dict1[key] == dict2[key]:
                 result[key] = {
-                    'status': 'unchanged',
+                    'type': 'unchanged',
                     'body1': make_diff(dict1[key])
                 }
             elif not isinstance(dict1[key], dict) or not isinstance(
                     dict2[key], dict):
                 result[key] = {
-                    'status': 'replaced',
+                    'type': 'replaced',
                     'body1': make_diff(dict1[key]),
                     'body2': make_diff(dict2[key])
                 }
             else:
                 result[key] = {
-                    'status': 'changed',
+                    'type': 'changed',
                     'body1': make_diff(dict1[key], dict2[key])
                 }
     return result

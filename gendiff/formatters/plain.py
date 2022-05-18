@@ -33,10 +33,10 @@ def make_plain(diff):
         keys = node.keys()
 
         for key in keys:
-            status = node[key]["status"]
+            type = node[key]["type"]
             body1 = node[key]["body1"]
 
-            if status == "changed":
+            if type == "changed":
 
                 save_key += str(key) + '.'
                 property += inner(body1, save_key)
@@ -47,17 +47,17 @@ def make_plain(diff):
 
             else:
                 body1 = make_value(body1)
-                if status == 'replaced':
+                if type == 'replaced':
                     body2 = node[key]["body2"]
                     body2 = make_value(body2)
                     property += f"Property '{save_key}{key}' \
 was updated. From {body1} to {body2}\n"
 
-                elif status == 'added':
+                elif type == 'added':
                     property += f"Property '{save_key}{key}' \
 was added with value: {body1}\n"
 
-                elif status == 'deleted':
+                elif type == 'deleted':
                     property += f"Property '{save_key}{key}' was removed\n"
 
                 else:

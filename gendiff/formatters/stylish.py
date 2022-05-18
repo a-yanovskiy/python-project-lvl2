@@ -16,7 +16,7 @@ def make_value(diff) -> str:
 
 
 def get_stylish(diff):
-    statuses = {
+    types = {
         "added": "+ ",
         "deleted": "- ",
         "unchanged": "  ",
@@ -28,25 +28,25 @@ def get_stylish(diff):
         if not isinstance(node, dict):
             return make_value(node)
 
-        nonlocal statuses
+        nonlocal types
         result = "{"
         indent = "  " * depth
 
         keys = node.keys()
 
         for key in keys:
-            status = node[key]["status"]
+            type = node[key]["type"]
             body1 = node[key]["body1"]
 
-            if status == "replaced":
-                result += ("\n" + indent + statuses["deleted"] + key + ": "
+            if type == "replaced":
+                result += ("\n" + indent + types["deleted"] + key + ": "
                            + inner(body1, depth + 2))
 
                 body2 = node[key]["body2"]
-                result += ("\n" + indent + statuses["added"] + key + ": "
+                result += ("\n" + indent + types["added"] + key + ": "
                            + inner(body2, depth + 2))
             else:
-                result += ("\n" + indent + statuses[status] + key + ": "
+                result += ("\n" + indent + types[type] + key + ": "
                            + inner(body1, depth + 2))
 
         return result + "\n" + indent[:-2] + "}"
