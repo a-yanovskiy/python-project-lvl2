@@ -26,7 +26,7 @@
         "body1": {
           "key5": {
             "body1": "value5",
-            "type": "unchanged"
+            "type": "added"
           }
         },
         "type": "added"
@@ -72,7 +72,7 @@
         "body1": {
           "key": {
             "body1": "value",
-            "type": "unchanged"
+            "type": "deleted"
           }
         },
         "body2": "str",
@@ -85,16 +85,16 @@
     "body1": {
       "abc": {
         "body1": 12345,
-        "type": "unchanged"
+        "type": "deleted"
       },
       "deep": {
         "body1": {
           "id": {
             "body1": 45,
-            "type": "unchanged"
+            "type": "deleted"
           }
         },
-        "type": "unchanged"
+        "type": "deleted"
       }
     },
     "type": "deleted"
@@ -107,17 +107,17 @@
             "body1": {
               "number": {
                 "body1": 45,
-                "type": "unchanged"
+                "type": "added"
               }
             },
-            "type": "unchanged"
+            "type": "added"
           }
         },
-        "type": "unchanged"
+        "type": "added"
       },
       "fee": {
         "body1": 100500,
-        "type": "unchanged"
+        "type": "added"
       }
     },
     "type": "added"
