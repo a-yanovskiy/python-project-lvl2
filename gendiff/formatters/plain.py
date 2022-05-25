@@ -23,7 +23,7 @@ def make_value(diff) -> str:
 
 
 def make_plain(diff):
-    def inner(node, save_key):
+    def inner(node, saved_key):
 
         if not isinstance(node, dict):
             return make_value(node)
@@ -38,31 +38,31 @@ def make_plain(diff):
 
             if type == "changed":
 
-                save_key += str(key) + '.'
-                property += inner(body1, save_key)
-                if key in save_key.split('.'):
-                    save_key = save_key.replace(f'{key}.', "")
+                saved_key += str(key) + '.'
+                property += inner(body1, saved_key)
+                if key in saved_key.split('.'):
+                    saved_key = saved_key.replace(f'{key}.', "")
                 else:
-                    save_key = ""
+                    saved_key = ""
 
             else:
                 body1 = make_value(body1)
                 if type == 'replaced':
                     body2 = node[key]["body2"]
                     body2 = make_value(body2)
-                    property += f"Property '{save_key}{key}' \
+                    property += f"Property '{saved_key}{key}' \
 was updated. From {body1} to {body2}\n"
 
                 elif type == 'added':
-                    property += f"Property '{save_key}{key}' \
+                    property += f"Property '{saved_key}{key}' \
 was added with value: {body1}\n"
 
                 elif type == 'deleted':
-                    property += f"Property '{save_key}{key}' was removed\n"
+                    property += f"Property '{saved_key}{key}' was removed\n"
 
                 else:
                     continue
 
         return property
 
-    return inner(diff, save_key="")
+    return inner(diff, saved_key="")
