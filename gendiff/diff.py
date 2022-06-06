@@ -1,4 +1,4 @@
-from gendiff.formatters.formatters import format_diff
+from formatters import format_diff
 from load import load_file
 
 
