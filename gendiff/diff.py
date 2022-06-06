@@ -1,5 +1,5 @@
-from formatters import format_diff
-from load import load_file
+from gendiff.load import load_file
+from .formatters import format_diff
 
 
 def make_diff(dict1, dict2=None):

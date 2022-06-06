@@ -1,7 +1,7 @@
 import pytest
 
 from gendiff.diff import make_diff
-from load import load_file
+from gendiff.load import load_file
 
 PATH_TO_JSON_1_FILE = "tests/fixtures/json_1_test_file.json"
 PATH_TO_JSON_2_FILE = "tests/fixtures/json_2_test_file.json"
