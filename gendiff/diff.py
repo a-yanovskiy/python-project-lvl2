@@ -1,5 +1,5 @@
-from gendiff.check import compare_ext
 from gendiff.formatters.formatters import format_diff
+from load import load_file
 
 
 def make_diff(dict1, dict2=None):
@@ -45,9 +45,7 @@ def make_diff(dict1, dict2=None):
 
 
 def generate_diff(first_file, second_file, format='stylish'):
-    files = compare_ext(first_file, second_file)
-    file_1, file_2 = files
-
+    file_1 = load_file(first_file)
+    file_2 = load_file(second_file)
     diff = make_diff(file_1, file_2)
-
     return format_diff(diff, format)

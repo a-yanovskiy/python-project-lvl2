@@ -19,10 +19,6 @@ gendiff file1.json file2.json
 gendiff file1.yaml file2.yaml
 ```
 
-***
-> Warning! There is no way to get difference between files with different formats.
-***
-
 # Usage
 
 ## Formatters
