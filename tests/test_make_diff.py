@@ -29,13 +29,6 @@ PATH_TO_YAML_SECOND_RESULT = "tests/fixtures/diff_second_result.txt"
                          ]
                          )
 def test_make_diff(path_1, path_2, result):
-    # files = compare_ext(
-    #     path_1,
-    #     path_2,
-    # )
-
-    # file1 = files[0]
-    # file2 = files[1]
     file1 = load_file(path_1)
     file2 = load_file(path_2)
 
