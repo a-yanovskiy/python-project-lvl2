@@ -1,4 +1,5 @@
 from gendiff.load import load_file
+from gendiff.parse import parse
 from .formatters import format_diff
 
 
@@ -45,7 +46,9 @@ def make_diff(dict1, dict2=None):
 
 
 def generate_diff(first_file, second_file, format='stylish'):
-    file_1 = load_file(first_file)
-    file_2 = load_file(second_file)
+    data_1, format_1 = load_file(first_file)
+    data_2, format_2 = load_file(second_file)
+    file_1 = parse(data_1, format_1)
+    file_2 = parse(data_2, format_2)
     diff = make_diff(file_1, file_2)
     return format_diff(diff, format)
